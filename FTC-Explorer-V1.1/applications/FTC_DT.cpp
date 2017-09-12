@@ -66,7 +66,7 @@ void FTC_DT::Data_Receive_Anl(u8 *data_buf,u8 num)
 
 	if(*(data_buf+2)==0X03)
 	{
-		rc.rawData[THROTTLE] = (vs16)(*(data_buf+4)<<8)|*(data_buf+5);
+		if(rc.jyszz) rc.rawData[THROTTLE] = (vs16)(*(data_buf+4)<<8)|*(data_buf+5);
 		rc.rawData[YAW] = (vs16)(*(data_buf+6)<<8)|*(data_buf+7);
 		rc.rawData[ROLL] = (vs16)(*(data_buf+8)<<8)|*(data_buf+9);
 		rc.rawData[PITCH] = (vs16)(*(data_buf+10)<<8)|*(data_buf+11);

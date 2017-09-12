@@ -1,7 +1,7 @@
 /******************** (C) COPYRIGHT 2015 FTC *******************************
- * ä½œè€…		 ï¼šFTC
- * æ–‡ä»¶å  ï¼šFTC_IMU.cpp
- * æè¿°    ï¼šé£è¡Œå™¨å§¿æ€è®¡ç®—
+ * ×÷Õß		 £ºFTC
+ * ÎÄ¼şÃû  £ºFTC_IMU.cpp
+ * ÃèÊö    £º·ÉĞĞÆ÷×ËÌ¬¼ÆËã
 **********************************************************************************/
 #include "FTC_IMU.h"
 
@@ -11,57 +11,57 @@ FTC_IMU::FTC_IMU()
 {
 }
 
-//IMUåˆå§‹åŒ–
+//IMU³õÊ¼»¯
 void FTC_IMU::Init()
 {
-	//æ»¤æ³¢å™¨å‚æ•°åˆå§‹åŒ–
+	//ÂË²¨Æ÷²ÎÊı³õÊ¼»¯
 	filter_Init();
-	//ä¼ æ„Ÿå™¨åˆå§‹åŒ–
+	//´«¸ĞÆ÷³õÊ¼»¯
 	sensor_Init();	
 }
 
-//æ›´æ–°ä¼ æ„Ÿå™¨æ•°æ®
+//¸üĞÂ´«¸ĞÆ÷Êı¾İ
 void FTC_IMU::updateSensor()
 {
-	//è¯»å–åŠ é€Ÿåº¦
+	//¶ÁÈ¡¼ÓËÙ¶È
 	mpu6050.Read_Acc_Data();
-	//è¯»å–è§’é€Ÿåº¦
+	//¶ÁÈ¡½ÇËÙ¶È
 	mpu6050.Read_Gyro_Data();	
-	//è·å–è§’é€Ÿåº¦ï¼Œå•ä½ä¸ºåº¦æ¯ç§’
+	//»ñÈ¡½ÇËÙ¶È£¬µ¥Î»Îª¶ÈÃ¿Ãë
 	Gyro = mpu6050.Get_Gyro();
-	//è·å–åŠ é€Ÿåº¦é‡‡æ ·å€¼
+	//»ñÈ¡¼ÓËÙ¶È²ÉÑùÖµ
 	Acc = mpu6050.Get_Acc();
 }
 
 
-//è®¡ç®—é£è¡Œå™¨å§¿æ€
+//¼ÆËã·ÉĞĞÆ÷×ËÌ¬
 void FTC_IMU::getAttitude()
 {
 	float deltaT;
 	Vector3d accTemp, gyroTemp;
 	
 #ifdef FTC_IMU_USE_LPF_1st	
-	//åŠ é€Ÿåº¦æ•°æ®ä¸€é˜¶ä½é€šæ»¤æ³¢
+	//¼ÓËÙ¶ÈÊı¾İÒ»½×µÍÍ¨ÂË²¨
 	Acc_lpf = LPF_1st(Acc_lpf, Acc, ftc.factor.acc_lpf);
 #endif	
 	
 #ifdef FTC_IMU_USE_LPF_2nd	
-	//åŠ é€Ÿåº¦æ•°æ®äºŒé˜¶ä½é€šæ»¤æ³¢
+	//¼ÓËÙ¶ÈÊı¾İ¶ş½×µÍÍ¨ÂË²¨
 	Acc_lpf = LPF_2nd(&Acc_lpf_2nd, Acc);
 #endif
 	
-	//é™€èºä»ªæ•°æ®äºŒé˜¶ä½é€šæ»¤æ³¢
+	//ÍÓÂİÒÇÊı¾İ¶ş½×µÍÍ¨ÂË²¨
 	Gyro_lpf = LPF_2nd(&Gyro_lpf_2nd, Gyro);
 	
 #ifdef FTC_IMU_USE_LPF_4th
-	//åŠ é€Ÿåº¦æ•°æ®å››é˜¶ä½é€šæ»¤æ³¢
+	//¼ÓËÙ¶ÈÊı¾İËÄ½×µÍÍ¨ÂË²¨
 	accTemp(double(Acc.x), double(Acc.y), double(Acc.z));
 	accTemp = LPF_Butterworth_4th(accTemp, &Acc_lpf_4th);
 	Acc_lpf(float(accTemp.x),float(accTemp.y),float(accTemp.z));
 #endif
 	
 
-	//è®¡ç®—å®é™…æµ‹é‡çš„åŠ é€Ÿåº¦å’Œé‡åŠ›åŠ é€Ÿåº¦çš„æ¯”å€¼
+	//¼ÆËãÊµ¼Ê²âÁ¿µÄ¼ÓËÙ¶ÈºÍÖØÁ¦¼ÓËÙ¶ÈµÄ±ÈÖµ
 	accRatio = Acc_lpf.length_squared() * 100 / (ACC_1G * ACC_1G);		
 	
 	deltaT = getDeltaT(GetSysTime_us());
@@ -74,23 +74,23 @@ void FTC_IMU::getAttitude()
 #endif
 }
 
-//è·å–é£è¡Œå™¨çš„åŠ é€Ÿåº¦åœ¨åœ°ç†åæ ‡ç³»çš„æŠ•å½±
+//»ñÈ¡·ÉĞĞÆ÷µÄ¼ÓËÙ¶ÈÔÚµØÀí×ø±êÏµµÄÍ¶Ó°
 Vector3f FTC_IMU::Get_Accel_Ef(void)
 {
 	Matrix3f dcm;
 	Vector3f anglerad;
 	
-	//å§¿æ€è§’è½¬å¼§åº¦
-	anglerad(-radians(angle.x), -radians(angle.y), radians(angle.z));	//æ²¡å†™é”™ï¼Œzè½´ç¬¦å·ä¸º+æ‰æ˜¯å¯¹çš„
+	//×ËÌ¬½Ç×ª»¡¶È
+	anglerad(-radians(angle.x), -radians(angle.y), radians(angle.z));	//Ã»Ğ´´í£¬zÖá·ûºÅÎª+²ÅÊÇ¶ÔµÄ
 
-	//è®¡ç®—è¡¨ç¤ºæ—‹è½¬çš„ä½™å¼¦çŸ©é˜µ
+	//¼ÆËã±íÊ¾Ğı×ªµÄÓàÏÒ¾ØÕó
 	dcm.from_euler(anglerad);
 	
 	return dcm * Acc_lpf;
 }
 
-//ä½™å¼¦çŸ©é˜µæ›´æ–°å§¿æ€
-Vector3f Vg(0,0,4096),Vm(100,0,0),lastgyro;
+//ÓàÏÒ¾ØÕó¸üĞÂ×ËÌ¬
+Vector3f Vg(0,0,1),Vm(100,0,0),lastgyro;
 void FTC_IMU::DCM_CF(Vector3f gyro,Vector3f acc, float deltaT)
 {
 	//to do
@@ -109,33 +109,56 @@ void FTC_IMU::DCM_CF(Vector3f gyro,Vector3f acc, float deltaT)
 
 }
 
-#define Kp 2.0f        //åŠ é€Ÿåº¦æƒé‡ï¼Œè¶Šå¤§åˆ™å‘åŠ é€Ÿåº¦æµ‹é‡å€¼æ”¶æ•›è¶Šå¿«
-#define Ki 0.001f      //è¯¯å·®ç§¯åˆ†å¢ç›Š
-//å››å…ƒæ•°æ›´æ–°å§¿æ€
+#define Kp 2.0f        //¼ÓËÙ¶ÈÈ¨ÖØ£¬Ô½´óÔòÏò¼ÓËÙ¶È²âÁ¿ÖµÊÕÁ²Ô½¿ì
+#define Ki 0.001f      //Îó²î»ı·ÖÔöÒæ
+//ËÄÔªÊı¸üĞÂ×ËÌ¬
+Quaternion Q;
+Vector3f VI;
 void FTC_IMU::Quaternion_CF(Vector3f gyro,Vector3f acc, float deltaT)
-{
-	//to do
-	
+{ 
+		Vector3f V_error,V_g;
+	  
+	  //ÖØÁ¦¼ÓËÙ¶È¹éÒ»»¯
+		acc.normalize();
+		
+	  //ÌáÈ¡ËÄÔªÊıµÄµÈĞ§ÓàÏÒ¾ØÕóµÄÖØÁ¦·ÖÁ¿
+		Q.vector_gravity(V_g);
+		
+	  //ÏòÁ¿²æ»ıµÃ³ö×ËÌ¬Îó²î²¢»ı·Ö
+		V_error = acc % V_g;
+		VI += V_error * Ki;
+		
+	  //»¥²¹ÂË²¨½«×ËÌ¬Îó²î²¹³¥µ½½ÇËÙ¶ÈÉÏ
+		gyro += V_error * Kp + VI;
+		
+	  //¸üĞÂËÄÔªÊı
+		Q.Runge_Kutta_1st(gyro, deltaT);
+		
+	  //ËÄÔªÊı¹éÒ»»¯
+		Q.normalize();
+		
+	  //ËÄÔªÊı×ªÅ·À­½Ç
+		Q.to_euler(&angle.x,&angle.y,&angle.z);
 }
 
 void FTC_IMU::filter_Init()
 {
-	//åŠ é€Ÿåº¦ä¸€é˜¶ä½é€šæ»¤æ³¢å™¨ç³»æ•°è®¡ç®—
+	//¼ÓËÙ¶ÈÒ»½×µÍÍ¨ÂË²¨Æ÷ÏµÊı¼ÆËã
 	ftc.factor.acc_lpf = LPF_1st_Factor_Cal(IMU_LOOP_TIME * 1e-6, ACC_LPF_CUT);
 	
-	//åŠ é€Ÿåº¦äºŒé˜¶ä½é€šæ»¤æ³¢å™¨ç³»æ•°è®¡ç®—
+	//¼ÓËÙ¶È¶ş½×µÍÍ¨ÂË²¨Æ÷ÏµÊı¼ÆËã
 	LPF_2nd_Factor_Cal(IMU_LOOP_TIME * 1e-6, ACC_LPF_CUT, &Acc_lpf_2nd);
 	
-	//é™€èºä»ªäºŒé˜¶ä½é€šæ»¤æ³¢å™¨ç³»æ•°è®¡ç®—	
+	//ÍÓÂİÒÇ¶ş½×µÍÍ¨ÂË²¨Æ÷ÏµÊı¼ÆËã	
 	LPF_2nd_Factor_Cal(IMU_LOOP_TIME * 1e-6, GYRO_LPF_CUT, &Gyro_lpf_2nd);	
 	
-	//äº’è¡¥æ»¤æ³¢å™¨ç³»æ•°è®¡ç®—
+	//»¥²¹ÂË²¨Æ÷ÏµÊı¼ÆËã
 	ftc.factor.gyro_cf = CF_Factor_Cal(IMU_LOOP_TIME * 1e-6, GYRO_CF_TAU);	
 }
 
 void FTC_IMU::sensor_Init()
 {
-	//åˆå§‹åŒ–MPU6050ï¼Œ1Khzé‡‡æ ·ç‡ï¼Œ98Hzä½é€šæ»¤æ³¢
+	//³õÊ¼»¯MPU6050£¬1Khz²ÉÑùÂÊ£¬98HzµÍÍ¨ÂË²¨
 	mpu6050.Init(1000,98);
 }
 

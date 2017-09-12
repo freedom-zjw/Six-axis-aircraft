@@ -31,38 +31,54 @@ void FTC_FlyControl::PID_Reset(void)
  	pid[PIDALT].set_pid(1.2, 0, 0, 200);
 }
 
-int32_t yaw_pid,roll_pid,pitch_pid;
-int32_t x_pid,y_pid,z_pid;
+int32_t yaw_pid, roll_pid, pitch_pid;
+int32_t x_pid, y_pid, z_pid;
 //飞行器姿态外环控制
 void FTC_FlyControl::Attitude_Outter_Loop(void)
 {
-	//to do
-	fc.PID_Reset();
-	roll_pid=pid[PIDROLL].get_pid(rc.Command[ROLL]-imu.angle.x,PID_OUTER_LOOP_TIME*1e-6);
-	pitch_pid=pid[PIDPITCH].get_pid(rc.Command[PITCH]-imu.angle.y,PID_OUTER_LOOP_TIME*1e-6);
-	yaw_pid=pid[PIDYAW].get_pid(rc.Command[YAW]-imu.angle.z,PID_OUTER_LOOP_TIME*1e-6);
+	int32_t	errorAngle[2];
+	Vector3f Gyro_ADC;
+	
+	//计算角度误差值
+	errorAngle[ROLL] = constrain_int32((rc.Command[ROLL] * 2) , -((int)FLYANGLE_MAX), +FLYANGLE_MAX) - imu.angle.x * 10; 
+	errorAngle[PITCH] = constrain_int32((rc.Command[PITCH] * 2) , -((int)FLYANGLE_MAX), +FLYANGLE_MAX) - imu.angle.y * 10; 
+	errorAngle[ROLL] = applyDeadband(errorAngle[ROLL], 2);
+	errorAngle[PITCH] = applyDeadband(errorAngle[PITCH], 2);
+	
+	//获取角速度
+	Gyro_ADC = imu.Gyro_lpf / 4.0f;
+	
+	//得到外环PID输出
+	RateError[ROLL] = pid[PIDANGLE].get_p(errorAngle[ROLL]) - Gyro_ADC.x;
+	RateError[PITCH] = pid[PIDANGLE].get_p(errorAngle[PITCH]) - Gyro_ADC.y;
+	RateError[YAW] = ((int32_t)(yawRate) * rc.Command[YAW]) / 32 - Gyro_ADC.z;		
 }
 
 //飞行器姿态内环控制
 void FTC_FlyControl::Attitude_Inner_Loop(void)
 {
-	//to do
-	if(rc.Command[THROTTLE]>RC_MINTHROTTLE)
+	int32_t PIDTerm[3];
+	float tiltAngle = constrain_float( max(abs(imu.angle.x), abs(imu.angle.y)), 0 ,20);
+	
+	for(u8 i=0; i<3;i++)
 	{
-		x_pid=pid[PIDROLL].get_pid(roll_pid-imu.Gyro.x,PID_INNER_LOOP_TIME*1e-6);
-		y_pid=pid[PIDPITCH].get_pid(pitch_pid-imu.Gyro.y,PID_INNER_LOOP_TIME*1e-6);
-		z_pid=pid[PIDYAW].get_pid(yaw_pid-imu.Gyro.z,PID_INNER_LOOP_TIME*1e-6);
-		int16_t thro;
-		thro=rc.Command[THROTTLE]/cosf(radians(max(abs(imu.angle.x),abs(imu.angle.y))));
-		motor.writeMotor(thro,x_pid,y_pid,z_pid);
+		//当油门低于检查值时积分清零
+		if ((rc.rawData[THROTTLE]) < RC_MINCHECK)	
+			pid[i].reset_I();
+		
+		//得到内环PID输出
+		PIDTerm[i] = pid[i].get_pid(RateError[i], PID_INNER_LOOP_TIME*1e-6);
 	}
-	else
-	{
-		pid[PIDROLL].reset_I();
-		pid[PIDPITCH].reset_I();
-		pid[PIDYAW].reset_I();
-	}
-}	
+	
+	PIDTerm[YAW] = -constrain_int32(PIDTerm[YAW], -300 - abs(rc.Command[YAW]), +300 + abs(rc.Command[YAW]));	
+		
+	//油门倾斜补偿
+	if(!ftc.f.ALTHOLD)
+		rc.Command[THROTTLE] = (rc.Command[THROTTLE] - 1000) / cosf(radians(tiltAngle)) + 1000;
+	
+	//PID输出转为电机控制量
+	motor.writeMotor(rc.Command[THROTTLE], PIDTerm[ROLL], PIDTerm[PITCH], PIDTerm[YAW]);
+}
 
 //飞行器高度外环控制
 void FTC_FlyControl::Altitude_Outter_Loop(void)

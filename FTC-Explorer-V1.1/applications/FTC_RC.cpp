@@ -52,10 +52,10 @@ void FTC_RC::Cal_Command(void)
     tmp = (uint32_t) (tmp - RC_MINCHECK) * 1000 / (2000 - RC_MINCHECK);       // [MINCHECK;2000] -> [0;1000]
     tmp2 = tmp / 100;
 		
-		if(!ftc.f.ALTHOLD){
-			Command[THROTTLE] = lookupThrottleRC[tmp2] + (tmp - tmp2 * 100) * (lookupThrottleRC[tmp2 + 1] - lookupThrottleRC[tmp2]) / 100;    // [0;1000] -> expo -> [MINTHROTTLE;MAXTHROTTLE]
-			Command[THROTTLE] = constrain_uint16(rawData[THROTTLE], RC_MINCHECK, 2000);
-		}
+			if(!ftc.f.ALTHOLD){
+				Command[THROTTLE] = lookupThrottleRC[tmp2] + (tmp - tmp2 * 100) * (lookupThrottleRC[tmp2 + 1] - lookupThrottleRC[tmp2]) / 100;    // [0;1000] -> expo -> [MINTHROTTLE;MAXTHROTTLE]
+				Command[THROTTLE] = constrain_uint16(rawData[THROTTLE], RC_MINCHECK, 2000);//amt low high
+			}
 		
 		//-------------------º½ÏòËø¶¨------------------
 		if (abs(Command[YAW]) < 70 && rawData[THROTTLE] > RC_MINCHECK) 
@@ -152,14 +152,53 @@ void FTC_RC::CheckAUX(void)
 	{
 		if(rc.rawData[AUX2]>0 && rc.rawData[AUX2]<1300)
 		{
+			rc.jyszz=1;
 		}
-		else if(rc.rawData[AUX2]>1400 && rc.rawData[AUX2]<1600)
+		else if(rc.rawData[AUX2]>1400 && rc.rawData[AUX2]<1600)//Æð·É
 		{
+			rc.jyszz=0;
+			if(imu.Acc.z<4200) rawData[THROTTLE]++;
+			else rawData[THROTTLE]--;
+				/*if(rc.First_TakeOff)
+				{
+					rc.Time_TakeOff=GetSysTime_us();
+					rc.First_TakeOff=0;
+				}
+				uint32_t during_time=2000000;
+				if(GetSysTime_us()-rc.Time_TakeOff<=during_time)
+				{
+					if(imu.Acc.z<4300) rawData[THROTTLE]++;
+					else rawData[THROTTLE]--;
+				}
+				else
+				{
+					if(rc.First_Back)
+					{
+						rc.Time_Back=GetSysTime_us();
+						rc.First_Back=0;
+					}
+					if(imu.Acc.z<3700) rawData[THROTTLE]++;
+					else rawData[THROTTLE]--;
+					if(GetSysTime_us()-Time_Back>during_time)
+					{
+						rawData[THROTTLE]=1100;
+						rc.Is_Fly_Over=1;
+						rc.jyszz=1;
+					}
+				}*/
 		}
 		else if(rc.rawData[AUX2]>1700 && rc.rawData[AUX2]<2100)
 		{
+			rc.jyszz=0;
+			if(imu.Acc.z<4050) rawData[THROTTLE]++;
+			else if(imu.Acc.z>4120) rawData[THROTTLE]--;
 		}
-
+		else if(rc.rawData[AUX2]>2200 && rc.rawData[AUX2]<2600)
+		{
+			rc.jyszz=0;
+			if(imu.Acc.z<3930) rawData[THROTTLE]++;
+			else rawData[THROTTLE]--;
+		}
 	}
 }
 

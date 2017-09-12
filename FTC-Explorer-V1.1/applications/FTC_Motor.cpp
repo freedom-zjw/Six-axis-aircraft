@@ -9,14 +9,14 @@ FTC_Motor motor;
 
 void FTC_Motor::writeMotor(uint16_t throttle, int32_t pidTermRoll, int32_t pidTermPitch, int32_t pidTermYaw)
 {
-	//to do
-	motorPWM[0] = throttle + sqrtf(3)*pidTermRoll*0.5f - pidTermPitch*0.5f + pidTermYaw;
-	motorPWM[1] = throttle + sqrtf(3)*pidTermRoll*0.5f + pidTermPitch*0.5f - pidTermYaw;
-	motorPWM[2] = throttle + pidTermPitch + pidTermYaw;
-	motorPWM[3] = throttle - sqrtf(3)*pidTermRoll*0.5f + pidTermPitch*0.5f - pidTermYaw;
-	motorPWM[4] = throttle - sqrtf(3)*pidTermRoll*0.5f - pidTermPitch*0.5f + pidTermYaw;
-	motorPWM[5] = throttle - pidTermPitch - pidTermYaw;
-
+	//六轴X型
+	motorPWM[2] = throttle - 0.5 * pidTermRoll + 0.866 *  pidTermPitch + pidTermYaw; //后右
+	motorPWM[1] = throttle - 0.5 * pidTermRoll - 0.866 *  pidTermPitch + pidTermYaw; //前右
+	motorPWM[0] = throttle + 0.5 * pidTermRoll + 0.866 *  pidTermPitch - pidTermYaw; //后左
+	motorPWM[3] = throttle + 0.5 * pidTermRoll - 0.866 *  pidTermPitch - pidTermYaw; //前左
+	motorPWM[5] = throttle - pidTermRoll - pidTermYaw;	//右
+	motorPWM[4] = throttle + pidTermRoll + pidTermYaw;	//左
+	
 	int16_t maxMotor = motorPWM[0];
 	for (u8 i = 1; i < MAXMOTORS; i++)
 	{
@@ -32,7 +32,8 @@ void FTC_Motor::writeMotor(uint16_t throttle, int32_t pidTermRoll, int32_t pidTe
 		motorPWM[i] = constrain_uint16(motorPWM[i], MINTHROTTLE, MAXTHROTTLE);
 	}
 
-	//如果未解锁，则将电机输出设置为最低
+	//如果未解锁,则将电机输出设置为最低
+	
 	if(!ftc.f.ARMED)	
 		ResetPWM();
 

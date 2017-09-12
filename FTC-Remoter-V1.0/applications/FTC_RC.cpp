@@ -194,9 +194,17 @@ void FTC_RC::KeyCheck(void)
 		
 		if(KeyDataR>3200 && KeyDataR<3300 && keyFlag && timeDelayFlag == 1)
 		{
-			if(Data[AUX2] == 1100)
+			/*if(Data[AUX2] == 1100)
 				Data[AUX2] = 1500;
 			else
+				Data[AUX2] = 1100;*/
+			if(Data[AUX2] == 1100)
+				Data[AUX2] = 1500;
+			else if(Data[AUX2] == 1500)
+				Data[AUX2] = 1900;
+			else if(Data[AUX2] == 1900)
+				Data[AUX2] = 2300;
+			else if(Data[AUX2] == 2300)
 				Data[AUX2] = 1100;
 			
 			keyFlag = 0;

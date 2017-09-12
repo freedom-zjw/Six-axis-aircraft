@@ -15,8 +15,8 @@
 #include<math.h>
 
 /*----------------------IMU--------------------*/
-#define FTC_IMU_USE_DCM_CF
-//#define FTC_IMU_USE_Quaternions_CF
+//#define FTC_IMU_USE_DCM_CF
+#define FTC_IMU_USE_Quaternions_CF
 
 //#define FTC_IMU_USE_LPF_1st
 #define FTC_IMU_USE_LPF_2nd
@@ -48,6 +48,7 @@
 #define FTC_DT_USE_NRF24l01
 /*--------------------------------------------------------*/
 
+//bool jyszz;//是否接收摇杆的数据，true接受，false不接收
 
 class FTC_Config
 {

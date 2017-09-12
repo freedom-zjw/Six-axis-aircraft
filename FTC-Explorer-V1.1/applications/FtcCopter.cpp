@@ -9,6 +9,11 @@
 
 int main(void)
 {
+	rc.jyszz=1;
+	rc.Is_Fly_Over=0;
+	rc.First_Back=1;
+	rc.First_TakeOff=1;
+	
 	//初始化飞控板的硬件设置
 	FTC_Hexacopter_board_Init();
 	
@@ -23,14 +28,6 @@ int main(void)
 	while(1)
 	{
 		FTC_Loop();
-		//FTC_LED led;
-		//led.Init ();
-		/*led.ON1 ();
-		led.ON2 ();
-		led.OFF1 ();
-		led.OFF2 ();*/		
-		/*FTC_Motor m;
-		m.writeMotor(0,0,0,0);*/
 	}
 	
 	return 0;

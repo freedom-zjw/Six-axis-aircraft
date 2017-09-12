@@ -16,6 +16,7 @@
 #define PITCH_LOOKUP_LENGTH 7
 #define THROTTLE_LOOKUP_LENGTH 12
 
+
 enum {
     ROLL = 0,
     PITCH,
@@ -38,6 +39,12 @@ public:
 
 	uint16_t rawData[10];
 	int16_t Command[4];
+	int16_t jyszz;//是否接收摇杆的数据，1接收，0不接收
+	int16_t Is_Fly_Over;//为1表示仍然在一键飞行模式，为0表示已退出
+  int16_t First_TakeOff;
+	int16_t First_Back;
+	uint32_t Time_TakeOff;
+	uint32_t Time_Back;
 
 	//参数初始化
 	void Init(void);
