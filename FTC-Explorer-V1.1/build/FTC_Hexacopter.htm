@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\build\FTC_Hexacopter.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\build\FTC_Hexacopter.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Mon Sep 11 20:10:16 2017
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5040049: Last Updated: Tue Sep 12 22:45:28 2017
 <BR><P>
 <H3>Maximum Stack Usage =        408 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -257,7 +257,7 @@ Global Symbols
 <LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_LED::ON2()
 <LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_LED::ON1()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
 </UL>
 
 <P><STRONG><a name="[6b]"></a>FTC_DT::Send_Data(unsigned char*, unsigned char)</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, ftc_dt.o(.text))
@@ -308,7 +308,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_NRF::Check_Event()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_1000Hz()
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_1000Hz()
 </UL>
 
 <P><STRONG><a name="[7c]"></a>FTC_DT::Send_PID(unsigned char, float, float, float, float, float, float, float, float, float)</STRONG> (Thumb, 558 bytes, Stack size 48 bytes, ftc_dt.o(.text))
@@ -395,11 +395,11 @@ Global Symbols
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2uiz
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_1000Hz()
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_1000Hz()
 </UL>
 
-<P><STRONG><a name="[f6]"></a>FTC_DT::Failsafe_Check()</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, ftc_dt.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<P><STRONG><a name="[f7]"></a>FTC_DT::Failsafe_Check()</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, ftc_dt.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
 </UL>
 
 <P><STRONG><a name="[87]"></a>FTC_Filter::LPF_1st_Factor_Cal(float, float)</STRONG> (Thumb, 52 bytes, Stack size 32 bytes, ftc_filter.o(.text))
@@ -513,7 +513,7 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_200Hz()
+<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_200Hz()
 </UL>
 
 <P><STRONG><a name="[9d]"></a>FTC_FlyControl::Attitude_Inner_Loop()</STRONG> (Thumb, 356 bytes, Stack size 48 bytes, ftc_flycontrol.o(.text))
@@ -532,15 +532,15 @@ Global Symbols
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
 </UL>
 
-<P><STRONG><a name="[f7]"></a>FTC_FlyControl::Altitude_Outter_Loop()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, ftc_flycontrol.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<P><STRONG><a name="[f8]"></a>FTC_FlyControl::Altitude_Outter_Loop()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, ftc_flycontrol.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
 </UL>
 
-<P><STRONG><a name="[f8]"></a>FTC_FlyControl::Altitude_Inner_Loop()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, ftc_flycontrol.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<P><STRONG><a name="[f9]"></a>FTC_FlyControl::Altitude_Inner_Loop()</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, ftc_flycontrol.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
 </UL>
 
 <P><STRONG><a name="[a3]"></a>FTC_IMU::FTC_IMU()</STRONG> (Thumb, 130 bytes, Stack size 8 bytes, ftc_imu.o(.text))
@@ -591,7 +591,7 @@ Global Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_MPU6050::Read_Gyro_Data()
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_MPU6050::Read_Acc_Data()
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
 </UL>
 
 <P><STRONG><a name="[b0]"></a>FTC_IMU::Quaternion_CF(Vector3&lang;float&rang;, Vector3&lang;float&rang;, float)</STRONG> (Thumb, 180 bytes, Stack size 120 bytes, ftc_imu.o(.text))
@@ -636,7 +636,7 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fdiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
 </UL>
 
 <P><STRONG><a name="[c2]"></a>FTC_IMU::Get_Accel_Ef()</STRONG> (Thumb, 84 bytes, Stack size 72 bytes, ftc_imu.o(.text))
@@ -757,7 +757,7 @@ Global Symbols
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
+<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
 </UL>
 
 <P><STRONG><a name="[dc]"></a>FTC_Navgation::Reset()</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, ftc_navgation.o(.text), UNUSED)
@@ -938,42 +938,47 @@ Global Symbols
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
 </UL>
 
-<P><STRONG><a name="[f4]"></a>FTC_RC::check_sticks()</STRONG> (Thumb, 248 bytes, Stack size 0 bytes, ftc_rc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<P><STRONG><a name="[f6]"></a>FTC_RC::check_sticks()</STRONG> (Thumb, 248 bytes, Stack size 0 bytes, ftc_rc.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
 </UL>
 
-<P><STRONG><a name="[f5]"></a>FTC_RC::CheckAUX()</STRONG> (Thumb, 120 bytes, Stack size 0 bytes, ftc_rc.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<P><STRONG><a name="[ee]"></a>FTC_RC::CheckAUX()</STRONG> (Thumb, 234 bytes, Stack size 8 bytes, ftc_rc.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = FTC_RC::CheckAUX() &rArr; __aeabi_cfcmple
+</UL>
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+</UL>
+<BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
 </UL>
 
 <P><STRONG><a name="[64]"></a>FTC_Loop()</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 408<LI>Call Chain = FTC_Loop() &rArr; FTC_Loop_500Hz() &rArr; FTC_Navgation::update() &rArr; FTC_IMU::Get_Accel_Ef() &rArr; Matrix3&lang;float&rang;::from_euler(const Vector3&lang;float&rang;&) &rArr; cosf &rArr; __mathlib_rredf2 &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
-<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_100Hz()
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_200Hz()
-<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
-<LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_1000Hz()
+<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_50Hz()
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_100Hz()
+<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_200Hz()
+<LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_500Hz()
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_1000Hz()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f9]"></a>FTC_Scheduler::FTC_Scheduler()</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ftc_scheduler.o(.text))
+<P><STRONG><a name="[fa]"></a>FTC_Scheduler::FTC_Scheduler()</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__sti___17_FTC_Scheduler_cpp_463cec18
 </UL>
 
 <P><STRONG><a name="[1ed]"></a>FTC_Scheduler::FTC_Scheduler__sub_object()</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, ftc_scheduler.o(.text), UNUSED)
 
-<P><STRONG><a name="[fa]"></a>safe_asin(float)</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, ftc_math.o(.text))
+<P><STRONG><a name="[fb]"></a>safe_asin(float)</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, ftc_math.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = safe_asin(float) &rArr; asinf &rArr; sqrtf &rArr; _fsqrt &rArr; __fpl_fnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_isnanf
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_isnanf
 <LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;asinf
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quaternion::to_euler(float*, float*, float*)
 </UL>
@@ -981,10 +986,10 @@ Global Symbols
 <P><STRONG><a name="[9f]"></a>constrain_float(float, float, float)</STRONG> (Thumb, 72 bytes, Stack size 24 bytes, ftc_math.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = constrain_float(float, float, float) &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_isnanf
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_isnanf
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfrcmple
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cfcmple
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_PID::get_i(int, float)
@@ -1127,7 +1132,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = Quaternion::to_euler(float*, float*, float*) &rArr; safe_asin(float) &rArr; asinf &rArr; sqrtf &rArr; _fsqrt &rArr; __fpl_fnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;degrees(float)
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan2f
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
@@ -1190,7 +1195,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Hexacopter_board_Init()
 </UL>
 
-<P><STRONG><a name="[f2]"></a>FTC_ADC_Battery()</STRONG> (Thumb, 160 bytes, Stack size 40 bytes, ftc_drv_adc.o(.text))
+<P><STRONG><a name="[f4]"></a>FTC_ADC_Battery()</STRONG> (Thumb, 160 bytes, Stack size 40 bytes, ftc_drv_adc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = FTC_ADC_Battery() &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
@@ -1201,7 +1206,7 @@ Global Symbols
 <LI><a href="#[cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_100Hz()
+<BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop_100Hz()
 </UL>
 
 <P><STRONG><a name="[129]"></a>InitCurrWrAddress()</STRONG> (Thumb, 92 bytes, Stack size 16 bytes, ftc_drv_eeprom.o(.text))
@@ -2964,9 +2969,9 @@ Global Symbols
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sinf
 </UL>
 
-<P><STRONG><a name="[fb]"></a>__ARM_isnanf</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ftc_math.o(i.__ARM_isnanf))
+<P><STRONG><a name="[fc]"></a>__ARM_isnanf</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, ftc_math.o(i.__ARM_isnanf))
 <BR><BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;constrain_float(float, float, float)
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
 </UL>
 
 <P><STRONG><a name="[95]"></a>__aeabi_vec_ctor_nocookie_nodtor</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, aeabi_vec_ctor_nocookie_nodtor.o(i.__aeabi_vec_ctor_nocookie_nodtor))
@@ -3017,7 +3022,7 @@ Global Symbols
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
+<BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
 </UL>
 
 <P><STRONG><a name="[107]"></a>atan2f</STRONG> (Thumb, 528 bytes, Stack size 32 bytes, atan2f.o(i.atan2f))
@@ -3322,7 +3327,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Navgation::update()
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quaternion::Runge_Kutta_1st(Vector3&lang;float&rang;&, float)
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_IMU::getDeltaT(unsigned)
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;powf
 </UL>
 
@@ -3337,7 +3342,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Navgation::update()
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quaternion::Runge_Kutta_1st(Vector3&lang;float&rang;&, float)
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Motor::writeMotor(unsigned short, int, int, int)
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 </UL>
 
 <P><STRONG><a name="[1ab]"></a>_dadd</STRONG> (Thumb, 332 bytes, Stack size 16 bytes, daddsub_clz.o(x$fpl$dadd), UNUSED)
@@ -3379,7 +3384,7 @@ Global Symbols
 <P><STRONG><a name="[128]"></a>__aeabi_cdcmple</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dleqf.o(x$fpl$dleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_cdcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<BR>[Called By]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 </UL>
 
 <P><STRONG><a name="[1af]"></a>_dcmple</STRONG> (Thumb, 120 bytes, Stack size 32 bytes, dleqf.o(x$fpl$dleqf), UNUSED)
@@ -3396,7 +3401,7 @@ Global Symbols
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quaternion::Runge_Kutta_1st(Vector3&lang;float&rang;&, float)
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_IMU::getDeltaT(unsigned)
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Motor::writeMotor(unsigned short, int, int, int)
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 </UL>
 
 <P><STRONG><a name="[1b1]"></a>_dmul</STRONG> (Thumb, 332 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul), UNUSED)
@@ -3437,7 +3442,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Navgation::update()
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Quaternion::Runge_Kutta_1st(Vector3&lang;float&rang;&, float)
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;powf
 </UL>
 
@@ -3517,7 +3522,7 @@ Global Symbols
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_MS5611::BaroAltCalculate()
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_MPU6050::CalOffset_Gyro()
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_MPU6050::CalOffset_Acc()
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 <LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;powf
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cosf
 <LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atan2f
@@ -3614,17 +3619,18 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Navgation::update()
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_MPU6050::CalOffset_Gyro()
 <LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_MPU6050::CalOffset_Acc()
-<LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_rredf2
 </UL>
 
 <P><STRONG><a name="[2c5]"></a>_ffltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, fflt_clz.o(x$fpl$ffltu), UNUSED)
 
-<P><STRONG><a name="[fc]"></a>__aeabi_cfcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
+<P><STRONG><a name="[ef]"></a>__aeabi_cfcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_cfcmple
 </UL>
-<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;constrain_float(float, float, float)
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
+<BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_RC::CheckAUX()
+<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;constrain_float(float, float, float)
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
 </UL>
 
 <P><STRONG><a name="[1bf]"></a>_fcmple</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, fleqf.o(x$fpl$fleqf), UNUSED)
@@ -3710,10 +3716,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[9e]"></a>__aeabi_cfrcmple</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf))
-<BR><BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Navgation::update()
+<BR><BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_RC::CheckAUX()
+<LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Navgation::update()
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;constrain_float(float, float, float)
 <LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_FlyControl::Attitude_Inner_Loop()
-<LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safe_asin(float)
 </UL>
 
 <P><STRONG><a name="[1c1]"></a>_frcmple</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, frleqf.o(x$fpl$frleqf), UNUSED)
@@ -3850,7 +3857,7 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ftc_rc.o(.init_array)
 </UL>
-<P><STRONG><a name="[ee]"></a>FTC_Loop_1000Hz()</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
+<P><STRONG><a name="[f0]"></a>FTC_Loop_1000Hz()</STRONG> (Thumb, 16 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 212<LI>Call Chain = FTC_Loop_1000Hz() &rArr; FTC_DT::Check_Event() &rArr; FTC_NRF::Check_Event() &rArr; FTC_DT::Data_Receive_Anl(unsigned char*, unsigned char) &rArr; FTC_Param::SAVE_PID() &rArr; EE_WriteVariable(unsigned short, unsigned short) &rArr; EE_PageTransfer(unsigned short, unsigned short) &rArr; EE_VerifyPageFullWriteVariable(unsigned short, unsigned short) &rArr; FLASH_ProgramHalfWord &rArr; FLASH_WaitForLastOperation
 </UL>
 <BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_DT::Data_Exchange()
@@ -3859,7 +3866,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop()
 </UL>
 
-<P><STRONG><a name="[ef]"></a>FTC_Loop_500Hz()</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
+<P><STRONG><a name="[f1]"></a>FTC_Loop_500Hz()</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 400<LI>Call Chain = FTC_Loop_500Hz() &rArr; FTC_Navgation::update() &rArr; FTC_IMU::Get_Accel_Ef() &rArr; Matrix3&lang;float&rang;::from_euler(const Vector3&lang;float&rang;&) &rArr; cosf &rArr; __mathlib_rredf2 &rArr; __aeabi_fmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Navgation::update()
@@ -3870,7 +3877,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop()
 </UL>
 
-<P><STRONG><a name="[f0]"></a>FTC_Loop_200Hz()</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
+<P><STRONG><a name="[f2]"></a>FTC_Loop_200Hz()</STRONG> (Thumb, 10 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = FTC_Loop_200Hz() &rArr; FTC_FlyControl::Attitude_Outter_Loop() &rArr; Vector3&lang;float&rang;::operator /(float) const &rArr; __aeabi_fdiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_FlyControl::Attitude_Outter_Loop()
@@ -3878,23 +3885,23 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop()
 </UL>
 
-<P><STRONG><a name="[f1]"></a>FTC_Loop_100Hz()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
+<P><STRONG><a name="[f3]"></a>FTC_Loop_100Hz()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = FTC_Loop_100Hz() &rArr; FTC_ADC_Battery() &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
+<BR>[Calls]<UL><LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_ADC_Battery()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop()
 </UL>
 
-<P><STRONG><a name="[f3]"></a>FTC_Loop_50Hz()</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
+<P><STRONG><a name="[f5]"></a>FTC_Loop_50Hz()</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = FTC_Loop_50Hz() &rArr; FTC_RC::Cal_Command() &rArr; __aeabi_fmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_RC::CheckAUX()
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_RC::check_sticks()
+<BR>[Calls]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_RC::CheckAUX()
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_RC::check_sticks()
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_RC::Cal_Command()
-<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_FlyControl::Altitude_Inner_Loop()
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_FlyControl::Altitude_Outter_Loop()
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_DT::Failsafe_Check()
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_FlyControl::Altitude_Inner_Loop()
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_FlyControl::Altitude_Outter_Loop()
+<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_DT::Failsafe_Check()
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Config::Pilot_Light()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Loop()
@@ -3903,7 +3910,7 @@ Local Symbols
 <P><STRONG><a name="[4b]"></a>__sti___17_FTC_Scheduler_cpp_463cec18</STRONG> (Thumb, 10 bytes, Stack size 4 bytes, ftc_scheduler.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __sti___17_FTC_Scheduler_cpp_463cec18
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Scheduler::FTC_Scheduler()
+<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;FTC_Scheduler::FTC_Scheduler()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> ftc_scheduler.o(.init_array)
 </UL>

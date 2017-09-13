@@ -157,8 +157,8 @@ void FTC_RC::CheckAUX(void)
 		else if(rc.rawData[AUX2]>1400 && rc.rawData[AUX2]<1600)//Æð·É
 		{
 			rc.jyszz=0;
-			if(imu.Acc.z<4200) rawData[THROTTLE]++;
-			else rawData[THROTTLE]--;
+			if(imu.Acc.z<4200) rawData[THROTTLE]+=3;
+			else rawData[THROTTLE]-=3;
 				/*if(rc.First_TakeOff)
 				{
 					rc.Time_TakeOff=GetSysTime_us();
@@ -190,14 +190,14 @@ void FTC_RC::CheckAUX(void)
 		else if(rc.rawData[AUX2]>1700 && rc.rawData[AUX2]<2100)
 		{
 			rc.jyszz=0;
-			if(imu.Acc.z<4050) rawData[THROTTLE]++;
-			else if(imu.Acc.z>4120) rawData[THROTTLE]--;
+			if(imu.Acc.z<4050) rawData[THROTTLE]+=3;
+			else if(imu.Acc.z>4120) rawData[THROTTLE]-=3;
 		}
 		else if(rc.rawData[AUX2]>2200 && rc.rawData[AUX2]<2600)
 		{
 			rc.jyszz=0;
-			if(imu.Acc.z<3930) rawData[THROTTLE]++;
-			else rawData[THROTTLE]--;
+			if(imu.Acc.z<3930) rawData[THROTTLE]+=3;
+			else rawData[THROTTLE]-=3;
 		}
 	}
 }
