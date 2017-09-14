@@ -70,7 +70,30 @@ void FTC_FlyControl::Attitude_Inner_Loop(void)
 		PIDTerm[i] = pid[i].get_pid(RateError[i], PID_INNER_LOOP_TIME*1e-6);
 	}
 	
-	PIDTerm[YAW] = -constrain_int32(PIDTerm[YAW], -300 - abs(rc.Command[YAW]), +300 + abs(rc.Command[YAW]));	
+	PIDTerm[YAW] = -constrain_int32(PIDTerm[YAW], -300 - abs(rc.Command[YAW]), +300 + abs(rc.Command[YAW]));
+
+	if(rc.rawData[AUX2]>0 && rc.rawData[AUX2]<1300)
+	{
+		rc.jyszz=1;
+	}
+	else if(rc.rawData[AUX2]>1400 && rc.rawData[AUX2]<1600)
+	{
+		rc.jyszz=0;
+		if(imu.Acc.z<4350) rc.rawData[THROTTLE]+=5;
+		else rc.rawData[THROTTLE]-=5;
+	}
+	else if(rc.rawData[AUX2]>1700 && rc.rawData[AUX2]<2100)
+	{
+		rc.jyszz=0;
+		if(imu.Acc.z<4050) rc.rawData[THROTTLE]+=5;
+		else if(imu.Acc.z>4120) rc.rawData[THROTTLE]-=5;
+	}
+	else if(rc.rawData[AUX2]>2200 && rc.rawData[AUX2]<2600)
+	{
+		rc.jyszz=0;
+		if(imu.Acc.z<3930) rc.rawData[THROTTLE]+=5;
+		else rc.rawData[THROTTLE]-=5;
+	}
 		
 	//ÓÍÃÅÇãÐ±²¹³¥
 	if(!ftc.f.ALTHOLD)
