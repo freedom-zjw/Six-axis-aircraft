@@ -19,6 +19,9 @@ private:
 	
 	int16_t motorPWM[6];	
 
+	int16_t time;//抛飞功能，记录抛飞时间
+	int16_t flag;
+
 	void ResetPWM(void);
 
 };

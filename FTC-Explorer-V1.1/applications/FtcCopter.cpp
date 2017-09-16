@@ -10,9 +10,8 @@
 int main(void)
 {
 	rc.jyszz=1;
-	rc.Is_Fly_Over=0;
-	rc.First_Back=1;
 	rc.First_TakeOff=1;
+	rc.flag=0;
 	
 	//初始化飞控板的硬件设置
 	FTC_Hexacopter_board_Init();

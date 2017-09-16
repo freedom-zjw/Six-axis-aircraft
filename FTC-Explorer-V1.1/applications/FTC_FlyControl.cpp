@@ -71,7 +71,23 @@ void FTC_FlyControl::Attitude_Inner_Loop(void)
 	}
 	
 	PIDTerm[YAW] = -constrain_int32(PIDTerm[YAW], -300 - abs(rc.Command[YAW]), +300 + abs(rc.Command[YAW]));
-
+/*
+	if(imu.Acc.z>4500)
+	{
+		rc.jyszz=0;
+		if(rc.First_TakeOff)
+		{
+			rc.Time_TakeOff=GetSysTime_us();
+			rc.First_TakeOff=0;
+		}
+		rc.flag=1;
+	}
+	if(rc.flag)
+	{
+		if(GetSysTime_us()-rc.Time_TakeOff<2000000*2) rc.rawData[THROTTLE]=1700;
+		else rc.rawData[THROTTLE]=1200;
+	}
+	*/
 	if(rc.rawData[AUX2]>0 && rc.rawData[AUX2]<1300)
 	{
 		rc.jyszz=1;
@@ -91,7 +107,7 @@ void FTC_FlyControl::Attitude_Inner_Loop(void)
 	else if(rc.rawData[AUX2]>2200 && rc.rawData[AUX2]<2600)
 	{
 		rc.jyszz=0;
-		if(imu.Acc.z<3930) rc.rawData[THROTTLE]+=5;
+		if(imu.Acc.z<4020) rc.rawData[THROTTLE]+=5;
 		else rc.rawData[THROTTLE]-=5;
 	}
 		
