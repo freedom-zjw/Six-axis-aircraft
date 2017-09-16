@@ -1,5 +1,6 @@
 # Six-axis-aircraft
-codes for a six Six-axis-aircraft
-
-- 一键起飞和伪定高
+ppt for how to coding to control the aircraft
++ please switch to other branch to view codes
+  - take_off_and_set_high : 一键起飞和定高
+  - throw： 抛飞
 
