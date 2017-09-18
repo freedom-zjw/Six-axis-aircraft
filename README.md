@@ -14,6 +14,7 @@ codes for a six Six-axis-aircraft
 - FTC_RC.h 增加控制是否接收摇杆传输数据的变量；
 - FTC_FlyControl.cpp 增加一键起降/悬停定高的代码；
 - FTC_DT.cpp 增加 if 语句，判断是否接收摇杆传输过来的值；
+</br>
 遥控器的 FTC_RC.cpp 将原本的两段式按键（1100-1500）改为四段式（1100-1500-1900-2300） 分别对应正
 常模式、起飞、 悬停、降落
 
@@ -26,5 +27,6 @@ codes for a six Six-axis-aircraft
 - FTC_RC.h 增加控制是否接收摇杆传输数据的变量；
 - FTC_FlyControl.cpp 增加一键起降/悬停定高的代码；
 - FTC_DT.cpp 增加 if 语句，判断是否接收摇杆传输过来的值；
+</br>
 遥控器的 FTC_RC.cpp 将原本的两段式按键（1100-1500）改为四段式（1100-1500-1900-2300） 分别对应正
 常模式、起飞、 悬停、降落
