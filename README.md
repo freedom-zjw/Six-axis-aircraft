@@ -10,4 +10,4 @@ codes for a six Six-axis-aircraft
 
 + 修改的文件
   - FTC_Motor.h 增加计时变量，用于控制飞行时间；
-  - FTC_Motor.cpp 抛飞代码实现
+  - FTC_Motor.cpp 抛飞代码实现
